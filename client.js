@@ -13,7 +13,12 @@ conn.on("data", (data) => {
 });
   // interpret incoming data as text
   conn.setEncoding("utf8");
-
+conn.on("connect", ()=>{
+  console.log('Susccessfully connected to game server');
+});
+conn.on("connect", () => {
+  conn.write("Name: IVE");
+});
   return conn;
 };
 
