@@ -27,13 +27,16 @@ const handleUserInput = function (data) {
 
   if (data === 'a') {
     console.log("Move: left");
+    connection.write("Move: left");
   }
 
   if (data === 's') {
     console.log("Move: down");
+    connection.write("Move: down");
   }
   if (data === 'd') {
     console.log("Move: right");
+    connection.write("Move: right");
   }
 
   if (data === '\u0003') {
