@@ -1,33 +1,45 @@
 const  {connect} = require('./client');
 const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+let connection;
 
 
-// setup interface to handle user input from stdin ctrl+c terminate it
 
-const setupInput = function () {
+
+// setup interface to handle user input from stdin
+
+const setupInput = function (conn) {
   const stdin = process.stdin;
+  connection= conn;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
   stdin.on("data", handleUserInput);
+  
+
   return stdin;
 };
 
-const handleUserInput = function () {
-  
-let input = '';
+const handleUserInput = function (data) {
+  if (data === 'w') {
+    console.log("Move: up");
+    connection.write("Move: up");
+  }
 
-rl.on('line', (inputString) => {
-    input += inputString;
-});
+  if (data === 'a') {
+    console.log("Move: left");
+  }
 
-rl.on('close', () => {
-    console.log(input);
-});};
+  if (data === 's') {
+    console.log("Move: down");
+  }
+  if (data === 'd') {
+    console.log("Move: right");
+  }
+
+  if (data === '\u0003') {
+    process.exit();
+  }
+
+};
 
 module.exports= {setupInput};
