@@ -39,6 +39,11 @@ const handleUserInput = function (data) {
     connection.write("Move: right");
   }
 
+  if (data === 'm') {
+    console.log("Message sent to the server");
+    connection.write("Say: Milshake");
+  }
+
   if (data === '\u0003') {
     process.exit();
   }
