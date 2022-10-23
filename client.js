@@ -15,10 +15,41 @@ conn.on("data", (data) => {
   conn.setEncoding("utf8");
 conn.on("connect", ()=>{
   console.log('Susccessfully connected to game server');
+
+  conn.on("connect", () => {
+    conn.write("Name: IVE");
+
+    conn.on("connect", () => {
+      conn.write("Move: up");
+      
+      /*setTimeout(() => {
+
+        conn.on("connect", ()=>{conn.write("Move: up");});
+      }, 1000);
+      setTimeout(() => {
+
+        conn.on("connect", ()=>{conn.write("Move: down");});
+      }, 1500);
+
+      setTimeout(() => {
+        conn.on("connect", ()=>{conn.write("Move: left");});
+      }, 2000);
+
+      setTimeout(() => {
+        conn.on("connect", ()=>{conn.write("Move: right");});
+      }, 3000);*/
+      
+
+    });
+    
+  });
 });
-conn.on("connect", () => {
-  conn.write("Name: IVE");
-});
+
+
+
+
+
+
   return conn;
 };
 
