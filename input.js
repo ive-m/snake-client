@@ -1,4 +1,6 @@
 let connection;
+const { keys } = require("./constants");
+const arrKeys= Object.keys(keys);//keys of the constant Obj of Messages
 
 const setupInput = function(conn) {
   const stdin = process.stdin;
@@ -11,35 +13,13 @@ const setupInput = function(conn) {
   return stdin;
 };
 
-const handleUserInput = function(data) {
-  if (data === 'w') {
-    connection.write("Move: up");
+const handleUserInput = function(data){
+   if (data === '\u0003') {
+    process.exit();//ctrl+c exit the process
   }
-  if (data === 'a') {
-    connection.write("Move: left");
-  }
-  if (data === 's') {
-    connection.write("Move: down");
-  }
-  if (data === 'd') {
-    connection.write("Move: right");
-  }
-  if (data === 'm') {
-    connection.write("Say: Milshake");
-  }
-  if (data === 'f') {
-    connection.write("Say: fantastic");
-  }
-  if (data === 'h') {
-    connection.write("Say: hi");
-  }
-  if (data === 'k') {
-    connection.write("Say: karate");
-  }
-  if (data === '\u0003') {
-    process.exit();
-  }
-
-};
+  if(arrKeys.includes(data))
+  {connection.write(keys[data]);}//sends data to the server
+    
+}
 
 module.exports = {setupInput};

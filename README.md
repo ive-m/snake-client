@@ -7,9 +7,17 @@ This is simply a multiplayer take on the genre.
 Before you can run this client, you will need to be running the server side which you can download and install from here. 
 
 ## Final Product
+The snake will move by pressing these keys:
+'w': "Move: up"
+'a': "Move: left"
+'s': "Move: down"
+'d': "Move: right"
 
-!["screenshot description"](#)
-!["screenshot description"](#)
+You will send messages by pressing these keys:
+'m': Milshake
+'f': Fantastic
+'h': Hi
+'k': Karate
 
 
 ## Getting Started
