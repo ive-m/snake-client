@@ -19,6 +19,7 @@ You will send messages by pressing these keys:
 'h': Hi
 'k': Karate
 
+![Snake is hungry!](https://github.com/ive-m/snake-client/blob/master/snake.png)
 
 ## Getting Started
 
